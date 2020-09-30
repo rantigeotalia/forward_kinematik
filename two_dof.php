@@ -15,7 +15,7 @@
 	<table>
 		<tr>
 			<th></th>
-			<th><img src="assets/img/2-dof.png"></th>
+			<th><img src="2-dof.png"></th>
 		</tr>
 		<tr>
 			<th>L1</th>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>FORWARD 1 DOF</title>
+	<title>INVERS 1 DOF</title>
 </head>
 <style type="text/css">
 	th, td {
@@ -9,7 +9,7 @@
 	}
 </style>
 <body>
-	<h3>FORWARD 1 DOF</h3>
+	<h3>INVERS 1 DOF</h3>
 	<h4>Inputkan nilai-nilai !</h4>
 	<form action="" method="post" name="form1">
 	<table>
@@ -22,8 +22,12 @@
 			<th><input type="number" name="sisi_miring" required></th>
 		</tr>
 		<tr>
-			<th>Sudut </th>
-			<th><input type="number" name="sudut" required></th>
+			<th>Titik X </th>
+			<th><input type="number" name="titik_x" step="0.001" required></th>
+		</tr>
+		<tr>
+			<th>Titik Y </th>
+			<th><input type="number" name="titik_y" step="0.001" required></th>
 		</tr>
 		<tr>
 			<th></th>
@@ -31,17 +35,20 @@
 		</tr>
 	</table>
 	</form>
+	
 		<?php
 			if(isset($_POST['submit'])){
 				$sisi_miring = $_POST['sisi_miring'];
-				$sudut = $_POST['sudut'];
- 
-				$x = $sisi_miring*sin(deg2rad($sudut));
-				$y = $sisi_miring*cos(deg2rad($sudut));
+				$titik_x = $_POST['titik_x'];
+				$titik_y = $_POST['titik_y'];
 
-				echo "L = $sisi_miring dan Sudut = $sudut <br>";
-				echo "Nilai X adalah ". round($x,3) ."<br>"; 
-				echo "Nilai Y adalah " .round($y,3) ."<br>";
+ 
+				$sudut = atan2($titik_x, $titik_y);
+				$rad = rad2deg($sudut);
+				echo "L = $sisi_miring , titik x = $titik_x , titik y = $titik_y <br>";
+				echo "Nilai sudut adalah ". round($rad) ."<br>"; 
+
+				
 			}
 
 		?>
